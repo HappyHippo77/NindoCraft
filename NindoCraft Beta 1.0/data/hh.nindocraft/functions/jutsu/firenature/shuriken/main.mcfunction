@@ -1,0 +1,2 @@
+particle minecraft:flame ~ ~0.8 ~ 0 0 0 0.01 5 normal
+execute as @e[type=#du:living,distance=..2,sort=nearest,limit=1,tag=!du_click_entity,tag=!hh.shuriken] at @s unless score @s du_uuid = @e[tag=hh.shuriken,sort=nearest,limit=1] du_uuid run tag @s add hh.addfire

@@ -1,0 +1,19 @@
+{
+    "display": {
+        "title": "NindoCraft",
+        "description": "Adds the world of Naruto into Minecraft! Believe it!",
+        "icon": {
+            "item": "barrier",
+            "nbt": "{CustomModelData: 7700001}"
+        },
+        "announce_to_chat": false,
+        "show_toast": false
+    },
+    "parent": "global:happyhippo77",
+    "criteria": {
+        "trigger": {
+            "trigger": "minecraft:tick"
+        }
+    
+    }
+}

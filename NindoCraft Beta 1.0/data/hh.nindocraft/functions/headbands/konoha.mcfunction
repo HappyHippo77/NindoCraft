@@ -1,0 +1,2 @@
+replaceitem entity @s armor.head minecraft:clock{du_click_detect:3b,NindoCraftID:3,CustomModelData:7700009,display:{Name:"\"Konoha Headband\"",Lore:["\"Right click to wear!\""]}}
+execute as @a[tag=du_right_click,nbt={SelectedItem:{id:"minecraft:clock",tag:{NindoCraftID:3}}}] at @s run clear @s clock{NindoCraftID:3} 1

@@ -1,0 +1,13 @@
+execute if score @s hh.handsigntimer matches 2.. unless score @s hh.handsign1 matches 1.. unless score @s hh.hsSuccess matches 1.. run function hh.nindocraft:jutsu/scroll/leftclick/1
+execute if score @s hh.handsigntimer matches 2.. if score @s hh.handsign1 matches 1.. unless score @s hh.handsign2 matches 1.. unless score @s hh.hsSuccess matches 1.. run function hh.nindocraft:jutsu/scroll/leftclick/2
+execute if score @s hh.handsigntimer matches 2.. if score @s hh.handsign2 matches 1.. unless score @s hh.handsign3 matches 1.. unless score @s hh.hsSuccess matches 1.. run function hh.nindocraft:jutsu/scroll/leftclick/3
+execute if score @s hh.handsigntimer matches 2.. if score @s hh.handsign3 matches 1.. unless score @s hh.handsign4 matches 1.. unless score @s hh.hsSuccess matches 1.. run function hh.nindocraft:jutsu/scroll/leftclick/4
+execute if score @s hh.handsigntimer matches 2.. if score @s hh.handsign4 matches 1.. unless score @s hh.handsign5 matches 1.. unless score @s hh.hsSuccess matches 1.. run function hh.nindocraft:jutsu/scroll/leftclick/5
+execute if score @s hh.handsigntimer matches 2.. if score @s hh.handsign5 matches 1.. unless score @s hh.handsign6 matches 1.. unless score @s hh.hsSuccess matches 1.. run function hh.nindocraft:jutsu/scroll/leftclick/6
+execute if score @s hh.handsigntimer matches 2.. if score @s hh.handsign6 matches 1.. unless score @s hh.handsign7 matches 1.. unless score @s hh.hsSuccess matches 1.. run function hh.nindocraft:jutsu/scroll/leftclick/7
+execute if score @s hh.handsigntimer matches 2.. if score @s hh.handsign7 matches 1.. unless score @s hh.handsign8 matches 1.. unless score @s hh.hsSuccess matches 1.. run function hh.nindocraft:jutsu/scroll/leftclick/8
+execute if score @s hh.handsigntimer matches 2.. if score @s hh.handsign8 matches 1.. unless score @s hh.handsign9 matches 1.. unless score @s hh.hsSuccess matches 1.. run function hh.nindocraft:jutsu/scroll/leftclick/9
+execute if score @s hh.handsigntimer matches 2.. if score @s hh.handsign9 matches 1.. unless score @s hh.handsign10 matches 1.. unless score @s hh.hsSuccess matches 1.. run function hh.nindocraft:jutsu/scroll/leftclick/10
+execute if score @s hh.hsSuccess matches 1 run playsound minecraft:custom.naruto.handsign player @s ~ ~ ~ 0.75 1
+scoreboard players set @s hh.hsSuccess 0
+execute if score @s hh.handsign1 matches 1.. run scoreboard players set @s hh.handsigntimer 1

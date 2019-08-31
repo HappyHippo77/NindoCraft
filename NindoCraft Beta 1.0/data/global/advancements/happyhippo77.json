@@ -1,0 +1,18 @@
+{
+    "display": {
+        "title": "HappyHippo77",
+        "description": "",
+        "icon": {
+   "item": "minecraft:player_head",
+   "nbt": "{SkullOwner:{Name: \"HappyHippo77\", Properties: {textures: [{Value: \"eyJ0aW1lc3RhbXAiOjE1NTY5MTU1MzA4MzUsInByb2ZpbGVJZCI6IjllMTdmYjM1NWM0NDRhNzQ5NmJjN2NjM2ZjYmM0MTAxIiwicHJvZmlsZU5hbWUiOiJIYXBweUhpcHBvNzciLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWMxN2VlNWUzNmE0MDgwZWZhNjQxYTgzMWMwNWMzNWQxNDQ0NTI4NjFiMzc4ZjhkZDQ5MWIxMTVkOWNjNDljOCJ9fX0=\"}]}}}"
+},
+        "show_toast": false,
+        "announce_to_chat": false
+    },
+    "parent": "global:root",
+    "criteria": {
+        "trigger": {
+            "trigger": "minecraft:tick"
+        }
+    }
+}

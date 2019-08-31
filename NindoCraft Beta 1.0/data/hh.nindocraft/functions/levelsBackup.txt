@@ -1,0 +1,48 @@
+# Levels
+execute as @a[scores={nexp=20..80}] at @s run scoreboard players set @s nlvl 1
+execute as @a[scores={nexp=80..140}] at @s run scoreboard players set @s nlvl 2
+execute as @a[scores={nexp=140..200}] at @s run scoreboard players set @s nlvl 3
+execute as @a[scores={nexp=200..260}] at @s run scoreboard players set @s nlvl 4
+execute as @a[scores={nexp=260..320}] at @s run scoreboard players set @s nlvl 5
+execute as @a[scores={nexp=320..380}] at @s run scoreboard players set @s nlvl 6
+execute as @a[scores={nexp=380..440}] at @s run scoreboard players set @s nlvl 7
+
+# ExtraEffects
+execute as @a[scores={nlvl=1..},tag=!hh.alreadyMsged1] at @s run tellraw @s {"text":"You are now level 1!"}
+execute as @a[scores={nlvl=1..},tag=!hh.alreadyMsged1] at @s run scoreboard players set @s maxchakra 125
+execute as @a[scores={nlvl=1..},tag=!hh.alreadyMsged1] at @s run tag @s add alreadyMsged1
+
+execute as @a[scores={nlvl=2..},tag=!hh.alreadyMsged2] at @s run tellraw @s {"text":"You are now level 2!"}
+execute as @a[scores={nlvl=2..},tag=!hh.alreadyMsged2] at @s run scoreboard players set @s maxchakra 150
+execute as @a[scores={nlvl=2..},tag=!hh.alreadyMsged2] at @s run give @s minecraft:stone_sword{Damage:1,Unbreakable:1,AttributeModifiers:[{AttributeName:"generic.attackSpeed",Name:"Speed",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:111l,UUIDMost:111l},{AttributeName:"generic.attackDamage",Name:"Damage",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:222l,UUIDMost:222l}],display:{Name:"{\"text\":\"Transformation Jutsu (Select)\"}",Lore:["Press Q by a mob to select it!"]}} 1
+execute as @a[scores={nlvl=2..},tag=!hh.alreadyMsged2] at @s run tag @s add alreadyMsged2
+
+execute as @a[scores={nlvl=3..},tag=!hh.alreadyMsged3] at @s run tellraw @s {"text":"You are now level 3!"}
+execute as @a[scores={nlvl=3..},tag=!hh.alreadyMsged3] at @s run scoreboard players set @s maxchakra 175
+execute as @a[scores={nlvl=3..},tag=!hh.alreadyMsged3] at @s run tag @s add alreadyMsged3
+
+execute as @a[scores={nlvl=4..},tag=!hh.alreadyMsged4] at @s run tellraw @s {"text":"You are now level 4!"}
+execute as @a[scores={nlvl=4..},tag=!hh.alreadyMsged4] at @s run scoreboard players set @s maxchakra 200
+execute as @a[scores={nlvl=4..},tag=!hh.alreadyMsged4] at @s run tag @s add alreadyMsged4
+
+execute as @a[scores={nlvl=5..},tag=!hh.alreadyMsged5] at @s run tellraw @s {"text":"You are now level 5!"}
+execute as @a[scores={nlvl=5..},tag=!hh.alreadyMsged5] at @s run scoreboard players set @s maxchakra 225
+execute as @a[scores={nlvl=5..,lightningnature=1..},tag=!hh.alreadyMsged5] at @s run give @s minecraft:stone_sword{Damage:2,Unbreakable:1,AttributeModifiers:[{AttributeName:"generic.attackSpeed",Name:"Speed",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:111l,UUIDMost:111l},{AttributeName:"generic.attackDamage",Name:"Damage",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:222l,UUIDMost:222l}],display:{Name:"{\"text\":\"Lightning Burst (Activate)\"}",Lore:["The user cloaks their body in lightning,","preventing anyone from coming near.","(Note: You cannot move while","in this mode.)"]}} 1
+execute as @a[scores={nlvl=5..,firenature=1..},tag=!hh.alreadyMsged5] at @s run give @s minecraft:stone_sword{Damage:3,Unbreakable:1,AttributeModifiers:[{AttributeName:"generic.attackSpeed",Name:"Speed",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:111l,UUIDMost:111l},{AttributeName:"generic.attackDamage",Name:"Damage",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:222l,UUIDMost:222l}],display:{Name:"{\"text\":\"Veil Technique\"}",Lore:["The user shoots out burning ash to","temporarily blind targets."]}} 1
+execute as @a[scores={nlvl=5..,waternature=1..},tag=!hh.alreadyMsged7] at @s run give @s minecraft:stone_sword{Damage:4,Unbreakable:1,AttributeModifiers:[{AttributeName:"generic.attackSpeed",Name:"Speed",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:111l,UUIDMost:111l},{AttributeName:"generic.attackDamage",Name:"Damage",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:222l,UUIDMost:222l}],display:{Name:"{\"text\":\"Hidden Mist Jutsu\"}",Lore:["Press Q to use the hidden mist jutsu!"]}} 1
+execute as @a[scores={nlvl=5..,windnature=1..},tag=!hh.alreadyMsged5] at @s run give @s minecraft:stone_sword{Damage:5,Unbreakable:1,AttributeModifiers:[{AttributeName:"generic.attackSpeed",Name:"Speed",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:111l,UUIDMost:111l},{AttributeName:"generic.attackDamage",Name:"Damage",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:222l,UUIDMost:222l}],display:{Name:"{\"text\":\"Wind Bullet Jutsu\"}",Lore:["Press Q to use the wind bullet jutsu!"]}} 1
+execute as @a[scores={nlvl=5..,earthnature=1..},tag=!hh.alreadyMsged5] at @s run give @s minecraft:stone_sword{Damage:6,Unbreakable:1,AttributeModifiers:[{AttributeName:"generic.attackSpeed",Name:"Speed",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:111l,UUIDMost:111l},{AttributeName:"generic.attackDamage",Name:"Damage",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:222l,UUIDMost:222l}],display:{Name:"{\"text\":\"Mud Wall Jutsu\"}",Lore:["Press Q to use the mud wall jutsu!"]}} 1
+execute as @a[scores={nlvl=5..},tag=!hh.alreadyMsged5] at @s run tag @s add alreadyMsged5
+
+execute as @a[scores={nlvl=6..},tag=!hh.alreadyMsged6] at @s run tellraw @s {"text":"You are now level 6!"}
+execute as @a[scores={nlvl=6..},tag=!hh.alreadyMsged6] at @s run scoreboard players set @s maxchakra 250
+execute as @a[scores={nlvl=6..},tag=!hh.alreadyMsged6] at @s run tag @s add alreadyMsged6
+
+execute as @a[scores={nlvl=7..},tag=!hh.alreadyMsged7] at @s run tellraw @s {"text":"You are now level 7!"}
+execute as @a[scores={nlvl=7..,firenature=1..},tag=!hh.alreadyMsged7] at @s run give @s minecraft:stone_sword{Damage:3,Unbreakable:1,AttributeModifiers:[{AttributeName:"generic.attackSpeed",Name:"Speed",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:111l,UUIDMost:111l},{AttributeName:"generic.attackDamage",Name:"Damage",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:222l,UUIDMost:222l}],display:{Name:"{\"text\":\"Fireball Jutsu\"}",Lore:["Press Q to use the fireball jutsu!"]}} 1
+execute as @a[scores={nlvl=7..,waternature=1..},tag=!hh.alreadyMsged5] at @s run give @s minecraft:stone_sword{Damage:4,Unbreakable:1,AttributeModifiers:[{AttributeName:"generic.attackSpeed",Name:"Speed",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:111l,UUIDMost:111l},{AttributeName:"generic.attackDamage",Name:"Damage",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:222l,UUIDMost:222l}],display:{Name:"{\"text\":\"Water Bullet Jutsu\"}",Lore:["Press Q to use the water bullet jutsu!"]}} 1
+execute as @a[scores={nlvl=7..,lightningnature=1..},tag=!hh.alreadyMsged5] at @s run give @s minecraft:stone_sword{Damage:2,Unbreakable:1,AttributeModifiers:[{AttributeName:"generic.attackSpeed",Name:"Speed",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:111l,UUIDMost:111l},{AttributeName:"generic.attackDamage",Name:"Damage",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:222l,UUIDMost:222l}],display:{Name:"{\"text\":\"Lightning Bolt Jutsu\"}",Lore:["The user fires a bolt of electricity","which shocks anyone it hits."]}} 1
+execute as @a[scores={nlvl=7..},tag=!hh.alreadyMsged7] at @s run scoreboard players set @s maxchakra 275
+execute as @a[scores={nlvl=7..},tag=!hh.alreadyMsged7] at @s run tag @s add alreadyMsged7
+
+# execute as @a[scores={nlvl=5..,lightningnature=1..},tag=!hh.alreadyMsged5] at @s run give @s minecraft:stone_sword{Damage:2,Unbreakable:1,AttributeModifiers:[{AttributeName:"generic.attackSpeed",Name:"Speed",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:111l,UUIDMost:111l},{AttributeName:"generic.attackDamage",Name:"Damage",Slot:"mainhand",Amount:0.0,Operation:0,UUIDLeast:222l,UUIDMost:222l}],display:{Name:"{\"text\":\"Chidori (Activate)\"}",Lore:["Press Q to activate chidori!"]}} 1

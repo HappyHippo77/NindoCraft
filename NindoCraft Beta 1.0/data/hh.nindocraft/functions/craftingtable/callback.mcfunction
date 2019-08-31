@@ -1,0 +1,1 @@
+scoreboard players set @s hh.count 0

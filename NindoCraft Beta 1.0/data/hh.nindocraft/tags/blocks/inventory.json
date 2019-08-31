@@ -1,0 +1,19 @@
+{
+	"values":[
+		"minecraft:chest",
+		"minecraft:trapped_chest",
+		"minecraft:barrel",
+		"minecraft:hopper",
+		"minecraft:furnace",
+		"minecraft:ender_chest",
+		"#du:colors/shulker_boxes",
+		"minecraft:blast_furnace",
+		"minecraft:smoker",
+		"minecraft:loom",
+		"minecraft:grindstone",
+		"minecraft:stonecutter",
+		"minecraft:dispenser",
+		"minecraft:dropper",
+		"minecraft:lectern"
+	]
+}
