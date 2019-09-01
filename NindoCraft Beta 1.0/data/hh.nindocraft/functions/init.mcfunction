@@ -12,6 +12,11 @@ scoreboard objectives add hh.death deathCount
 scoreboard objectives add hh.narutoExp dummy
 scoreboard objectives add hh.narutoLvl dummy
 scoreboard objectives add hh.nindoStart dummy
+scoreboard objectives add hh.firstJoinTimr dummy
+scoreboard objectives add hh.chakraNature1 dummy
+scoreboard objectives add hh.chakraNature2 dummy
+scoreboard objectives add hh.village dummy
+
 scoreboard objectives add hh.stamina dummy
 scoreboard objectives add hh.maxStamina dummy
 scoreboard objectives add hh.ninjutsu dummy
@@ -22,12 +27,11 @@ scoreboard objectives add hh.healthProg dummy
 scoreboard objectives add hh.taiProg dummy
 scoreboard objectives add an.success dummy
 scoreboard objectives add hh.taiProg2 dummy
+
 scoreboard objectives add hh.scrollCurrent dummy
 scoreboard objectives add hh.scrollMax dummy
 scoreboard objectives add hh.currentSlot dummy
 scoreboard objectives add hh.previousSlot dummy
-
-scoreboard objectives add hh.itemCount dummy
 
 scoreboard objectives add hh.slot0 dummy
 scoreboard objectives add hh.slot1 dummy

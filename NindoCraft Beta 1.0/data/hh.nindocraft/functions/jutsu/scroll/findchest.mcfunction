@@ -1,2 +1,2 @@
-execute if block ~ ~ ~ #naruto:inventory align xyz positioned ~0.5 ~ ~0.5 run function hh.nindocraft:jutsu/scroll/blockchest
+execute if block ~ ~ ~ #hh.nindocraft:inventory align xyz positioned ~0.5 ~ ~0.5 run function hh.nindocraft:jutsu/scroll/blockchest
 execute as @s[distance=..6] if block ~ ~ ~ #du:non-solid anchored feet positioned ^ ^ ^0.1 run function hh.nindocraft:jutsu/scroll/findchest

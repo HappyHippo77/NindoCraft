@@ -4,9 +4,6 @@
 # Bugfixes for DU
 scoreboard players add @a[scores={du_uuid=1}] du_uuid 1
 
-# Item Count (Continues at bottom of script)
-execute as @e[type=item] store result score @s hh.itemCount run data get entity @s Item.Count 1
-
 # Clock_Drop
 execute if entity @a[scores={hh.dropClock=1}] as @a[scores={hh.dropClock=1}] run tag @s add hh.reset_clock
 execute at @a[tag=hh.reset_clock] as @e[type=minecraft:item,tag=!hh.orig,distance=..4,nbt={Item:{id:"minecraft:clock",Count:1b,tag:{NindoCraftID:1}}}] run tag @s add hh.orig
@@ -183,30 +180,11 @@ execute as @a[tag=hh.chakracontrol] at @s run function hh.nindocraft:jutsu/chakr
 
 function hh.nindocraft:levels
 
-execute as @a[tag=hh.clickedfire1] run scoreboard players set @s hh.firenature 1
-execute as @a[tag=hh.clickedwater1] run scoreboard players set @s hh.waternature 1
-execute as @a[tag=hh.clickedearth1] run scoreboard players set @s hh.earthnature 1
-execute as @a[tag=hh.clickedwind1] run scoreboard players set @s hh.windnature 1
-execute as @a[tag=hh.clickedlightning1] run scoreboard players set @s hh.windnature 1
-execute as @a unless entity @s[tag=hh.clickedfire1] run scoreboard players set @s hh.firenature 0
-execute as @a unless entity @s[tag=hh.clickedwater1] run scoreboard players set @s hh.waternature 0
-execute as @a unless entity @s[tag=hh.clickedearth1] run scoreboard players set @s hh.earthnature 0
-execute as @a unless entity @s[tag=hh.clickedwind1] run scoreboard players set @s hh.windnature 0
-execute as @a unless entity @s[tag=hh.clickedlightning1] run scoreboard players set @s hh.windnature 0
-
-execute as @a[tag=hh.clickedfire2] run scoreboard players set @s hh.firenature 1
-execute as @a[tag=hh.clickedwater2] run scoreboard players set @s hh.waternature 1
-execute as @a[tag=hh.clickedearth2] run scoreboard players set @s hh.earthnature 1
-execute as @a[tag=hh.clickedwind2] run scoreboard players set @s hh.windnature 1
-execute as @a[tag=hh.clickedlightning2] run scoreboard players set @s hh.windnature 1
-execute as @a unless entity @s[tag=hh.clickedfire2] run scoreboard players set @s hh.firenature 0
-execute as @a unless entity @s[tag=hh.clickedwater2] run scoreboard players set @s hh.waternature 0
-execute as @a unless entity @s[tag=hh.clickedearth2] run scoreboard players set @s hh.earthnature 0
-execute as @a unless entity @s[tag=hh.clickedwind2] run scoreboard players set @s hh.windnature 0
-execute as @a unless entity @s[tag=hh.clickedlightning2] run scoreboard players set @s hh.windnature 0
-
 scoreboard players add @a hh.nindoStart 0
 scoreboard players add @a hh.narutoLvl 0
+scoreboard players add @a hh.chakraNature1 0
+scoreboard players add @a hh.chakraNature2 0
+scoreboard players add @a hh.village 0
 
 #	Triggers
 
@@ -224,17 +202,18 @@ execute as @a[scores={hh.fjTrigger=7}] run function hh.nindocraft:firstjoin/wate
 execute as @a[scores={hh.fjTrigger=8}] run function hh.nindocraft:firstjoin/wind2
 execute as @a[scores={hh.fjTrigger=9}] run function hh.nindocraft:firstjoin/lightning2
 execute as @a[scores={hh.fjTrigger=10}] run function hh.nindocraft:hfirstjoin/earth2
+execute as @a[scores={hh.fjTrigger=1..}] run scoreboard players set @s hh.firstJoinTimr 200
 execute as @a[scores={hh.fjTrigger=0..}] run scoreboard players set @s hh.fjTrigger 0
 
-execute as @a[scores={hh.villTrigger=1},tag=!hh.konoha,tag=!hh.suna,tag=!hh.kiri,tag=!hh.oto,tag=!hh.taki,tag=!hh.iwa,tag=!hh.kumo,tag=!hh.ame,tag=!hh.kusa] run function hh.nindocraft:village/konoha
-execute as @a[scores={hh.villTrigger=2},tag=!hh.konoha,tag=!hh.suna,tag=!hh.kiri,tag=!hh.oto,tag=!hh.taki,tag=!hh.iwa,tag=!hh.kumo,tag=!hh.ame,tag=!hh.kusa] run function hh.nindocraft:village/suna
-execute as @a[scores={hh.villTrigger=3},tag=!hh.konoha,tag=!hh.suna,tag=!hh.kiri,tag=!hh.oto,tag=!hh.taki,tag=!hh.iwa,tag=!hh.kumo,tag=!hh.ame,tag=!hh.kusa] run function hh.nindocraft:village/kiri
-execute as @a[scores={hh.villTrigger=4},tag=!hh.konoha,tag=!hh.suna,tag=!hh.kiri,tag=!hh.oto,tag=!hh.taki,tag=!hh.iwa,tag=!hh.kumo,tag=!hh.ame,tag=!hh.kusa] run function hh.nindocraft:village/oto
-execute as @a[scores={hh.villTrigger=5},tag=!hh.konoha,tag=!hh.suna,tag=!hh.kiri,tag=!hh.oto,tag=!hh.taki,tag=!hh.iwa,tag=!hh.kumo,tag=!hh.ame,tag=!hh.kusa] run function hh.nindocraft:village/taki
-execute as @a[scores={hh.villTrigger=6},tag=!hh.konoha,tag=!hh.suna,tag=!hh.kiri,tag=!hh.oto,tag=!hh.taki,tag=!hh.iwa,tag=!hh.kumo,tag=!hh.ame,tag=!hh.kusa] run function hh.nindocraft:village/iwa
-execute as @a[scores={hh.villTrigger=7},tag=!hh.konoha,tag=!hh.suna,tag=!hh.kiri,tag=!hh.oto,tag=!hh.taki,tag=!hh.iwa,tag=!hh.kumo,tag=!hh.ame,tag=!hh.kusa] run function hh.nindocraft:village/kumo
-execute as @a[scores={hh.villTrigger=8},tag=!hh.konoha,tag=!hh.suna,tag=!hh.kiri,tag=!hh.oto,tag=!hh.taki,tag=!hh.iwa,tag=!hh.kumo,tag=!hh.ame,tag=!hh.kusa] run function hh.nindocraft:village/ame
-execute as @a[scores={hh.villTrigger=9},tag=!hh.konoha,tag=!hh.suna,tag=!hh.kiri,tag=!hh.oto,tag=!hh.taki,tag=!hh.iwa,tag=!hh.kumo,tag=!hh.ame,tag=!hh.kusa] run function hh.nindocraft:village/kusa
+execute as @a[scores={hh.villTrigger=1,hh.village=..0}] run function hh.nindocraft:village/konoha
+execute as @a[scores={hh.villTrigger=2,hh.village=..0}] run function hh.nindocraft:village/suna
+execute as @a[scores={hh.villTrigger=3,hh.village=..0}] run function hh.nindocraft:village/kiri
+execute as @a[scores={hh.villTrigger=4,hh.village=..0}] run function hh.nindocraft:village/oto
+execute as @a[scores={hh.villTrigger=5,hh.village=..0}] run function hh.nindocraft:village/taki
+execute as @a[scores={hh.villTrigger=6,hh.village=..0}] run function hh.nindocraft:village/iwa
+execute as @a[scores={hh.villTrigger=7,hh.village=..0}] run function hh.nindocraft:village/kumo
+execute as @a[scores={hh.villTrigger=8,hh.village=..0}] run function hh.nindocraft:village/ame
+execute as @a[scores={hh.villTrigger=9,hh.village=..0}] run function hh.nindocraft:village/kusa
 execute as @a[scores={hh.villTrigger=0..}] run scoreboard players set @s hh.villTrigger 0
 
 #	Clans
@@ -243,47 +222,47 @@ execute as @a[scores={hh.villTrigger=0..}] run scoreboard players set @s hh.vill
 #execute as @a[scores={hh.clanTrigger1=0..}] run scoreboard players set @s hh.clanTrigger1 0
 
 #	Nature
-execute as @a[scores={hh.nindoStart=0}] at @s run tellraw @s ["",{"text":"Please choose your first chakra nature:\n  - ","bold":true,"color":"aqua"},{"text":"Fire","bold":true,"color":"red","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 1"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Water","bold":true,"color":"blue","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 2"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Wind","bold":true,"color":"gray","clickEvent":{"action":"open_url","value":"/trigger hh.fjTrigger set 3"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Lightning","bold":true,"color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 4"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Earth","bold":true,"color":"gold","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 5"}}]
-execute as @a[scores={hh.nindoStart=0}] at @s run scoreboard players set @s hh.nindoStart 1
-execute as @a[tag=hh.clickedwater1] at @s run scoreboard players set @s hh.waternature 1
-execute as @a[tag=hh.clickedwater1,scores={hh.nindoStart=1}] at @s run tellraw @s ["",{"text":"Please choose your second chakra nature:\n  - ","bold":true,"color":"aqua"},{"text":"Fire","bold":true,"color":"red","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 6"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Water","bold":true,"color":"blue","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 7"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Wind","bold":true,"color":"gray","clickEvent":{"action":"open_url","value":"/trigger hh.fjTrigger set 8"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Lightning","bold":true,"color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 9"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Earth","bold":true,"color":"gold","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 10"}}]
-execute as @a[tag=hh.clickedwater1,scores={hh.nindoStart=1}] at @s run scoreboard players set @s hh.nindoStart 2
-execute as @a[tag=hh.clickedwind1] at @s run scoreboard players set @s hh.windnature 1
-execute as @a[tag=hh.clickedwind1,scores={hh.nindoStart=1}] at @s run tellraw @s ["",{"text":"Please choose your second chakra nature:\n  - ","bold":true,"color":"aqua"},{"text":"Fire","bold":true,"color":"red","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 6"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Water","bold":true,"color":"blue","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 7"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Wind","bold":true,"color":"gray","clickEvent":{"action":"open_url","value":"/trigger hh.fjTrigger set 8"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Lightning","bold":true,"color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 9"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Earth","bold":true,"color":"gold","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 10"}}]
-execute as @a[tag=hh.clickedwind1,scores={hh.nindoStart=1}] at @s run scoreboard players set @s hh.nindoStart 2
-execute as @a[tag=hh.clickedlightning1] at @s run scoreboard players set @s hh.windnature 1
-execute as @a[tag=hh.clickedlightning1,scores={hh.nindoStart=1}] at @s run tellraw @s ["",{"text":"Please choose your second chakra nature:\n  - ","bold":true,"color":"aqua"},{"text":"Fire","bold":true,"color":"red","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 6"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Water","bold":true,"color":"blue","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 7"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Wind","bold":true,"color":"gray","clickEvent":{"action":"open_url","value":"/trigger hh.fjTrigger set 8"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Lightning","bold":true,"color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 9"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Earth","bold":true,"color":"gold","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 10"}}]
-execute as @a[tag=hh.clickedlightning1,scores={hh.nindoStart=1}] at @s run scoreboard players set @s hh.nindoStart 2
-execute as @a[tag=hh.clickedearth1] at @s run scoreboard players set @s hh.earthnature 1
-execute as @a[tag=hh.clickedearth1,scores={hh.nindoStart=1}] at @s run tellraw @s ["",{"text":"Please choose your second chakra nature:\n  - ","bold":true,"color":"aqua"},{"text":"Fire","bold":true,"color":"red","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 6"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Water","bold":true,"color":"blue","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 7"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Wind","bold":true,"color":"gray","clickEvent":{"action":"open_url","value":"/trigger hh.fjTrigger set 8"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Lightning","bold":true,"color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 9"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Earth","bold":true,"color":"gold","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 10"}}]
-execute as @a[tag=hh.clickedearth1,scores={hh.nindoStart=1}] at @s run scoreboard players set @s hh.nindoStart 2
-execute as @a[tag=hh.clickedfire1] at @s run scoreboard players set @s hh.firenature 1
-execute as @a[tag=hh.clickedfire1,scores={hh.nindoStart=1}] at @s run tellraw @s ["",{"text":"Please choose your second chakra nature:\n  - ","bold":true,"color":"aqua"},{"text":"Fire","bold":true,"color":"red","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 6"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Water","bold":true,"color":"blue","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 7"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Wind","bold":true,"color":"gray","clickEvent":{"action":"open_url","value":"/trigger hh.fjTrigger set 8"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Lightning","bold":true,"color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 9"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Earth","bold":true,"color":"gold","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 10"}}]
-execute as @a[tag=hh.clickedfire1,scores={hh.nindoStart=1}] at @s run scoreboard players set @s hh.nindoStart 2
+scoreboard players add @a[scores={hh.nindoStart=..4}] hh.firstJoinTimr 1
 
-execute as @a[tag=hh.clickedwater2] at @s run scoreboard players set @s hh.waternature 1
-execute as @a[tag=hh.clickedwater2] at @s run scoreboard players add @s hh.narutoExp 0
-execute as @a[tag=hh.clickedwind2] at @s run scoreboard players set @s hh.windnature 1
-execute as @a[tag=hh.clickedwind2] at @s run scoreboard players add @s hh.narutoExp 0
-execute as @a[tag=hh.clickedlightning2] at @s run scoreboard players set @s hh.windnature 1
-execute as @a[tag=hh.clickedlightning2] at @s run scoreboard players add @s hh.narutoExp 0
-execute as @a[tag=hh.clickedearth2] at @s run scoreboard players set @s hh.earthnature 1
-execute as @a[tag=hh.clickedearth2] at @s run scoreboard players add @s hh.narutoExp 0
-execute as @a[tag=hh.clickedfire2] at @s run scoreboard players set @s hh.firenature 1
-execute as @a[tag=hh.clickedfire2] at @s run scoreboard players add @s hh.narutoExp 0
+scoreboard players set @a[tag=hh.clickedfire1] hh.chakraNature1 1
+scoreboard players set @a[tag=hh.clickedwater1] hh.chakraNature1 2
+scoreboard players set @a[tag=hh.clickedearth1] hh.chakraNature1 3
+scoreboard players set @a[tag=hh.clickedwind1] hh.chakraNature1 4
+scoreboard players set @a[tag=hh.clickedlightning1] hh.chakraNature1 5
+
+scoreboard players set @a[tag=hh.clickedfire2] hh.chakraNature2 1
+scoreboard players set @a[tag=hh.clickedwater2] hh.chakraNature2 2
+scoreboard players set @a[tag=hh.clickedearth2] hh.chakraNature2 3
+scoreboard players set @a[tag=hh.clickedwind2] hh.chakraNature2 4
+scoreboard players set @a[tag=hh.clickedlightning2] hh.chakraNature2 5
+
+scoreboard players set @a[tag=hh.konoha] hh.village 1
+scoreboard players set @a[tag=hh.suna] hh.village 2
+scoreboard players set @a[tag=hh.kiri] hh.village 3
+scoreboard players set @a[tag=hh.oto] hh.village 4
+scoreboard players set @a[tag=hh.taki] hh.village 5
+scoreboard players set @a[tag=hh.iwa] hh.village 6
+scoreboard players set @a[tag=hh.kumo] hh.village 7
+scoreboard players set @a[tag=hh.ame] hh.village 8
+scoreboard players set @a[tag=hh.kusa] hh.village 9
+
+execute as @a[scores={hh.firstJoinTimr=200..,hh.chakraNature1=0}] at @s run tellraw @s ["",{"text":"Please choose your first chakra nature:\n  - ","bold":true,"color":"aqua"},{"text":"Fire","bold":true,"color":"red","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 1"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Water","bold":true,"color":"blue","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 2"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Wind","bold":true,"color":"gray","clickEvent":{"action":"open_url","value":"/trigger hh.fjTrigger set 3"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Lightning","bold":true,"color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 4"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Earth","bold":true,"color":"gold","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 5"}}]
+execute as @a[scores={hh.nindoStart=0,hh.firstJoinTimr=200..}] at @s run scoreboard players set @s hh.nindoStart 1
+execute as @a[scores={hh.chakraNature1=1..,hh.firstJoinTimr=200..,hh.chakraNature2=0}] at @s run tellraw @s ["",{"text":"Please choose your second chakra nature:\n  - ","bold":true,"color":"aqua"},{"text":"Fire","bold":true,"color":"red","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 6"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Water","bold":true,"color":"blue","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 7"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Wind","bold":true,"color":"gray","clickEvent":{"action":"open_url","value":"/trigger hh.fjTrigger set 8"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Lightning","bold":true,"color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 9"}},{"text":"\n"},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Earth","bold":true,"color":"gold","clickEvent":{"action":"run_command","value":"/trigger hh.fjTrigger set 10"}}]
+execute as @a[scores={hh.nindoStart=1,hh.chakraNature1=1..,hh.firstJoinTimr=200..,hh.chakraNature2=1}] at @s run scoreboard players set @s hh.nindoStart 2
 
 #	Village
 
-execute as @a[tag=hh.clickedwater2,scores={hh.nindoStart=2}] run tellraw @s ["",{"text":"Please choose your village:\n  - ","bold":true,"color":"aqua"},{"text":"Konohagakure","bold":true,"color":"red","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 1"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Sunagakure","bold":true,"color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 2"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Kirigakure","bold":true,"color":"aqua","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 3"}},{"text":"\n  - ","bold":true,"color":"aqua"},{"text":"Otogakure","bold":true,"color":"light_purple","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 4"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Takigakure","bold":true,"color":"blue","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 5"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Iwagakure","bold":true,"color":"dark_gray","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 6"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Kumogakure","bold":true,"color":"gray","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 7"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Amegakure","bold":true,"color":"dark_aqua","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 8"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Kusagakure","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 9"}}]
-execute as @a[tag=hh.clickedwater2,scores={hh.nindoStart=2}] run scoreboard players set @s hh.nindoStart 3
-execute as @a[tag=hh.clickedwind2,scores={hh.nindoStart=2}] run tellraw @s ["",{"text":"Please choose your village:\n  - ","bold":true,"color":"aqua"},{"text":"Konohagakure","bold":true,"color":"red","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 1"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Sunagakure","bold":true,"color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 2"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Kirigakure","bold":true,"color":"aqua","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 3"}},{"text":"\n  - ","bold":true,"color":"aqua"},{"text":"Otogakure","bold":true,"color":"light_purple","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 4"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Takigakure","bold":true,"color":"blue","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 5"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Iwagakure","bold":true,"color":"dark_gray","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 6"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Kumogakure","bold":true,"color":"gray","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 7"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Amegakure","bold":true,"color":"dark_aqua","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 8"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Kusagakure","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 9"}}]
-execute as @a[tag=hh.clickedwind2,scores={hh.nindoStart=2}] run scoreboard players set @s hh.nindoStart 3
-execute as @a[tag=hh.clickedlightning2,scores={hh.nindoStart=2}] run tellraw @s ["",{"text":"Please choose your village:\n  - ","bold":true,"color":"aqua"},{"text":"Konohagakure","bold":true,"color":"red","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 1"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Sunagakure","bold":true,"color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 2"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Kirigakure","bold":true,"color":"aqua","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 3"}},{"text":"\n  - ","bold":true,"color":"aqua"},{"text":"Otogakure","bold":true,"color":"light_purple","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 4"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Takigakure","bold":true,"color":"blue","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 5"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Iwagakure","bold":true,"color":"dark_gray","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 6"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Kumogakure","bold":true,"color":"gray","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 7"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Amegakure","bold":true,"color":"dark_aqua","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 8"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Kusagakure","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 9"}}]
-execute as @a[tag=hh.clickedlightning2,scores={hh.nindoStart=2}] run scoreboard players set @s hh.nindoStart 3
-execute as @a[tag=hh.clickedearth2,scores={hh.nindoStart=2}] run tellraw @s ["",{"text":"Please choose your village:\n  - ","bold":true,"color":"aqua"},{"text":"Konohagakure","bold":true,"color":"red","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 1"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Sunagakure","bold":true,"color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 2"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Kirigakure","bold":true,"color":"aqua","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 3"}},{"text":"\n  - ","bold":true,"color":"aqua"},{"text":"Otogakure","bold":true,"color":"light_purple","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 4"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Takigakure","bold":true,"color":"blue","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 5"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Iwagakure","bold":true,"color":"dark_gray","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 6"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Kumogakure","bold":true,"color":"gray","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 7"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Amegakure","bold":true,"color":"dark_aqua","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 8"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Kusagakure","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 9"}}]
-execute as @a[tag=hh.clickedearth2,scores={hh.nindoStart=2}] run scoreboard players set @s hh.nindoStart 3
-execute as @a[tag=hh.clickedfire2,scores={hh.nindoStart=2}] run tellraw @s ["",{"text":"Please choose your village:\n  - ","bold":true,"color":"aqua"},{"text":"Konohagakure","bold":true,"color":"red","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 1"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Sunagakure","bold":true,"color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 2"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Kirigakure","bold":true,"color":"aqua","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 3"}},{"text":"\n  - ","bold":true,"color":"aqua"},{"text":"Otogakure","bold":true,"color":"light_purple","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 4"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Takigakure","bold":true,"color":"blue","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 5"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Iwagakure","bold":true,"color":"dark_gray","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 6"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Kumogakure","bold":true,"color":"gray","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 7"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Amegakure","bold":true,"color":"dark_aqua","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 8"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Kusagakure","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 9"}}]
-execute as @a[tag=hh.clickedfire2,scores={hh.nindoStart=2}] run scoreboard players set @s hh.nindoStart 3
+execute as @a[scores={hh.chakraNature2=1..,hh.firstJoinTimr=200..,hh.village=0}] run tellraw @s ["",{"text":"Please choose your village:\n  - ","bold":true,"color":"aqua"},{"text":"Konohagakure","bold":true,"color":"red","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 1"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Sunagakure","bold":true,"color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 2"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Kirigakure","bold":true,"color":"aqua","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 3"}},{"text":"\n  - ","bold":true,"color":"aqua"},{"text":"Otogakure","bold":true,"color":"light_purple","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 4"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Takigakure","bold":true,"color":"blue","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 5"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Iwagakure","bold":true,"color":"dark_gray","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 6"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Kumogakure","bold":true,"color":"gray","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 7"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Amegakure","bold":true,"color":"dark_aqua","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 8"}},{"text":"\n","bold":true},{"text":"  - ","bold":true,"color":"aqua"},{"text":"Kusagakure","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger hh.villTrigger set 9"}}]
+execute as @a[scores={hh.nindoStart=2,hh.chakraNature2=1..,hh.firstJoinTimr=200..}] run scoreboard players set @s hh.nindoStart 3
+
+scoreboard players set @a[scores={hh.firstJoinTimr=200..}] hh.firstJoinTimr 0
+
+execute as @a[scores={hh.nindoStart=4}] at @s run tellraw @s {"text":"You are currently level 0, kill hostile mobs and use jutsu to gain experience!","color":"green"}
+execute as @a[scores={hh.nindoStart=4}] at @s run playsound minecraft:entity.experience_orb.pickup master @s ~ ~ ~ 1 1
+execute as @a[scores={hh.nindoStart=4}] at @s run scoreboard players set @s hh.firstJoinTimr 0
+execute as @a[scores={hh.nindoStart=4}] at @s run scoreboard players add @s hh.narutoExp 0
+execute as @a[scores={hh.nindoStart=4}] at @s run scoreboard players set @s hh.nindoStart 5
 
 #	Clan
 
@@ -384,3 +363,24 @@ function hh.nindocraft:jutsu/scroll/main
 # Drop Corrections
 scoreboard players set @a hh.dropClock 0
 scoreboard players set @a hh.dropIronSword 0
+
+# First Join Tag Removal
+tag @a remove hh.clickedfire1
+tag @a remove hh.clickedwater1
+tag @a remove hh.clickedearth1
+tag @a remove hh.clickedwind1
+tag @a remove hh.clickedlightning1
+tag @a remove hh.clickedfire2
+tag @a remove hh.clickedwater2
+tag @a remove hh.clickedearth2
+tag @a remove hh.clickedwind2
+tag @a remove hh.clickedlightning2
+tag @a remove hh.konoha
+tag @a remove hh.suna
+tag @a remove hh.kiri
+tag @a remove hh.oto
+tag @a remove hh.taki
+tag @a remove hh.iwa
+tag @a remove hh.kumo
+tag @a remove hh.ame
+tag @a remove hh.kusa

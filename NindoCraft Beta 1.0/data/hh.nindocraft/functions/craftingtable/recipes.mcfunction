@@ -36,6 +36,14 @@ execute if score @s hh.slot1 matches 0 if score @s hh.slot3 matches 0 if score @
 execute if score @s hh.slot1 matches 0 if score @s hh.slot3 matches 0 if score @s hh.slot5 matches 0 if score @s hh.slot7 matches 0 if block ~ ~ ~ dropper{Items:[{Slot:0b,id:"minecraft:iron_ingot"},{Slot:2b,id:"minecraft:iron_ingot"},{Slot:4b,id:"minecraft:iron_ingot"},{Slot:6b,id:"minecraft:iron_ingot"},{Slot:8b,id:"minecraft:iron_ingot"}]} run scoreboard players set @s hh.crafted 1
 
 execute store result entity @e[type=item,sort=nearest,limit=1] Item{}.Count int 1 run scoreboard players get @s hh.count
+
+execute if score @s hh.crafted matches 1 run playsound minecraft:custom.naruto.poof1 block @a ~ ~ ~ 0.2 1
+execute if score @s hh.crafted matches 1 run particle minecraft:cloud ~ ~1 ~ 0 0 0 0.2 20 normal
+execute if score @s hh.crafted matches 1 run particle minecraft:explosion ~ ~1 ~ 0 0 0 0.1 1 normal
+
+execute unless score @s hh.crafted matches 1 run playsound minecraft:block.fire.extinguish block @a ~ ~ ~ 0.5 1
+execute unless score @s hh.crafted matches 1 run particle minecraft:smoke ~ ~1 ~ 0 0 0 0.075 40 normal
+
 execute if score @s hh.crafted matches 1 run data merge block ~ ~ ~ {Items:[]}
 execute if score @s hh.crafted matches 1 run scoreboard players set @s hh.crafted 0
 
